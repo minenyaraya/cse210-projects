@@ -37,7 +37,7 @@
             "program": "${workspaceFolder}/csharp-prep/Prep2/bin/Debug/net7.0/Prep2.dll",
             "args": [],
             "cwd": "${workspaceFolder}/csharp-prep/Prep2",
-            "console": "integratedTerminal",
+            "console": "internalTerminal",
             "internalConsoleOptions": "neverOpen",
             "stopAtEntry": false
         },
@@ -248,7 +248,7 @@
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
             "stopAtEntry": false
-        },
+        }
 
     ]
 }
