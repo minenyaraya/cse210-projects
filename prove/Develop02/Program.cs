@@ -26,7 +26,7 @@ public class Program
             Console.WriteLine(" 4 - Save :");
             Console.WriteLine(" 5 - Quit :");
             input = Convert.ToInt32(Console.ReadLine());
-               
+            
             if(input == 1)
             {
                 Write();
