@@ -1,4 +1,5 @@
-public class Reflecting : Activity{
+public class Reflecting : Activity
+{
     private string _prompt;
     private string _reflecting;
 
@@ -7,9 +8,9 @@ public class Reflecting : Activity{
         base.SetActivityName(activityName);
         base.SetDescription(description);
     }
-    public string GetPrompt()
+    public string GetPrompts()
     {
-        return _prompt;
+        return _prompts;
     }
     public string GetReflecting()
     {
@@ -21,7 +22,7 @@ public class Reflecting : Activity{
     }
     public void DisplayPrompt()
     {
-        string prompt = base.getPromptFile("Prompts.tex");
+        string prompt = base.getPromptsFile("Prompts.tex");
         Console.WriteLine("Reflecting on what we read helps us keep a mind free of negative thoughts. Read each of the sentences, take a deep breath when you finish the sentence and apply it to your day.");
         Console.WriteLine(" Now your are ready to write something nice. ");
 
@@ -49,7 +50,7 @@ public class Reflecting : Activity{
             {
                 public void DisplayReflecting(int timer)
                 {
-                    string reflecting = base.GetPromptFile("Promt.txt");
+                    string reflecting = base.GetPromptsFile("Promt.txt");
                     Console.WriteLine($"\n    {reflecting}   ");
                     base.ShowSpiner(5);
                 }

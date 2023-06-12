@@ -1,25 +1,25 @@
 public class Listing : Activity
 {
-    private string _prompt;
+    private string _prompts;
 
     public Listing(string activityName, string description):base(activityName, description)
     {
         base.SetActivityName(activityName);
         base.SetDescription(description);
     }
-    public string GetPrompt()
+    public string GetPrompts()
     {
-        return _prompt;
+        return _prompts;
     }
-    public void SetPrompt(string prompt)
+    public void SetPrompt(string prompts)
     {
-        _prompt = prompt;
+        _prompts = prompts;
     }
     public void DisplayPrompt()
     {
-        string prompt = GetPrompt("prompy.txt");
+        string prompt = GetPrompts("prompts.txt");
         Console.WriteLine("Listing : The positive words helps us recognize the details of thoughts. With the sentence you read, make a list of uplifting words that come to mind.");
-        Console.WriteLine($"    {prompt}   ");
+        Console.WriteLine($"    {prompts}   ");
         Console.WriteLine("Time to write positive words: ");
         Console.WriteLine("Welcome To The Activities");
         
@@ -58,5 +58,4 @@ public class Listing : Activity
     }     
 
         
-    }
 }

@@ -1,13 +1,11 @@
 using System;
-{
-    
-}
+
 public class Activity
 {
     private string _activityName;
     private string _description;
     private string _Timer;
-    provate int  _spinnerCounter = 0;
+    private int  _spinnerCounter = 0;
     private List<int> _usedPrompts = new List<int>();
   
 
@@ -31,9 +29,19 @@ public class Activity
     {
         return _activityName;
     }
-    private void getTimer;
 
-    public void GetTimer { get => getTimer; set => this.getTimer = value; }
+    internal void SetActivityName(string activityName)
+    {
+        throw new NotImplementedException();
+    }
+
+    private  getTimer;
+    private object activityName;
+    private object description;
+
+    public void GetTimer { get => GetTimer1; set => this.getTimer = value; }
+    public void GetTimer1 { get => GetTimer2; set => this.getTimer = value; }
+    public void GetTimer2 { get => getTimer; set => this.getTimer = value; }
 }
         return _timer()
     {
