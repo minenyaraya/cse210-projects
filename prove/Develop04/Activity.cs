@@ -1,28 +1,26 @@
 using System;
-
+using System.IO;
 public class Activity
 {
-    private string _activityName;
-    private string _description;
-    private string _Timer;
-    private int  _spinnerCounter = 0;
-    private List<int> _usedPrompts = new List<int>();
+    protected string _activityName;
+    protected string _description;
+    protected List<int> _usedPrompts = new List<int>();
   
 
-    public Activity (string _activityName, string _description, int timer)
+    public Activity (string activityName, string description, int timer)
     {
        SetActivity(activityName);
        SetDescription(description);
     }
 
-    private void SetDescription(object description)
+    protected void SetDescription(string description)
     {
-        throw new NotImplementedException();
+      _description = description;
     }
 
-    private void SetActivity(object activityName)
+    protected void SetActivity(string activityName)
     {
-        throw new NotImplementedException();
+      _activityName = activityName;
     }
 
     public string GetActivityName()
@@ -30,37 +28,9 @@ public class Activity
         return _activityName;
     }
 
-    internal void SetActivityName(string activityName)
-    {
-        throw new NotImplementedException();
-    }
-
-    private  getTimer;
-    private object activityName;
-    private object description;
-
-    public void GetTimer { get => GetTimer1; set => this.getTimer = value; }
-    public void GetTimer1 { get => GetTimer2; set => this.getTimer = value; }
-    public void GetTimer2 { get => getTimer; set => this.getTimer = value; }
-}
-        return _timer()
-    {
-      public void SetTimer(int timer);
-      {
-            _timer = timer;
-      }
       public string GetDescription()
-
       {
         return _description;
-      }
-      public void SetDescription(string description)
-      {
-        _description = description;
-      }
-      public int GetSpinnerCounter;
-      {
-        return _spinerCounter;
       }
       public void AddUsedPrompts(int promptsIndex)
       {
@@ -79,23 +49,19 @@ public class Activity
         string activityName = GetActivityName();
         string description = GetDescription();
 
-        Console.Clear();Console.Write($"Welcome to the {activityName}.\n{Description}\nHowlong, in seconds, would you like for your activity? ");string userInput = Console.ReadLine();int activityTime = int.Parse(userInput);SetTimer(Timer);Console.WriteLine("\nGet Ready...");ShowSpinner(3);
+        Console.Clear();
+        Console.Write($"Welcome to the {activityName}.\n{_description}\n ");
+        Console.WriteLine("\nGet Ready...");
+       
       }
       public void DisplayFinale()
       {
         string activityName = GetActivityName();
-        int Timer = GetTimer();Console.WriteLine($"\nWell Done!\n\nYou have completed another {Timer}seconds of {activityTitle}");ShowSpinner(5);
+        Console.WriteLine($"\nWell Done!\n\nYou have completed another activity");
       }
       public void Pause(int pausetimer)
       {
-        Stopwatch stopwatch = stopwatch();
-        stopwatch.Start();
-
-        while (stopwatch.ElapseMillseconds < pausetimer * 1000)
-        {
-            Console.Write(pauseTime - (stopwatch.ElapsedMilliseconds /1000));Console.SetCursorPosition(Console.CursorLeft - 1 , Console.CursorTop);Thread.Sleep(1000)
-        }
-              Console.WriteLine("Follow me");
+        Console.WriteLine("Follow me");
         
         ///>\*|*/<
         List<string> animacionStrings = new List<string>();
@@ -119,23 +85,24 @@ public class Activity
       }
       public string GetPromptFile(string fileName)
       {
-        string[] prompts = System.IO.File.ReadAllLines(fileName);
+        string[] prompts = File.ReadAllLines(fileName);
 
         int lenght = prompts.Length;
         Random rnd= new Random();
         int i = rnd.Next(lenght);
         List<int> usedPrompts = GetUsedPrompts();
 
-        if(usedPrompts.Count == lenght){Console.WriteLine("You answered all the prompts!");Thread.Sleep(3000);ResetUsedPrompts();}while(usedPrompts.Contains(i))
+        if(usedPrompts.Count == lenght)
         {
+          // Console.WriteLine("You answered all the prompts!");
+          // Thread.Sleep(3000);ResetUsedPrompts();
+          // }
+          while(usedPrompts.Contains(i))
+          {
             i = rnd.Next(lenght);
-        }return prompts[i];
+          }
+        }
+        usedPrompts.Add(i);
+        return prompts[i];
       }  
 }     
-
-
-
-   
-
-
-}

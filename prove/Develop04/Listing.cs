@@ -1,11 +1,12 @@
 public class Listing : Activity
 {
     private string _prompts;
+    public static string MenuMessage = "Listening to positive words helps us recognize the details of thoughts. With the sentence you read, make a list of uplifting words that come to mind.";
 
-    public Listing(string activityName, string description):base(activityName, description)
+    public Listing(string activityName, string description, int timer) : base(activityName, description, timer)
     {
-        base.SetActivityName(activityName);
-        base.SetDescription(description);
+        SetActivity(activityName);
+        SetDescription(description);
     }
     public string GetPrompts()
     {
@@ -17,12 +18,36 @@ public class Listing : Activity
     }
     public void DisplayPrompt()
     {
-        string prompt = GetPrompts("prompts.txt");
-        Console.WriteLine("Listing : The positive words helps us recognize the details of thoughts. With the sentence you read, make a list of uplifting words that come to mind.");
-        Console.WriteLine($"    {prompts}   ");
-        Console.WriteLine("Time to write positive words: ");
         Console.WriteLine("Welcome To The Activities");
+        Console.WriteLine("Listing : The positive words helps us recognize the details of thoughts. With the prompt you read, make a list of uplifting words that come to mind.");
+        string prompt = GetPromptFile("prompts.txt");
+        Console.WriteLine($"    {prompt}   ");
+        Console.WriteLine("Time to write positive words: ");
         
+        CountWords();
+
+        // animation();
+
+        Console.WriteLine("Yay! You done. ");
+    }
+    public void CountWords()
+    {
+        Console.Write("*-*");
+        string words = Console.ReadLine();
+        int count = AddWords(words);
+        DisplayWords(count);
+    }
+    public void DisplayWords(int count)
+    {
+        Console.WriteLine($" You wrote {count} words! ");
+        Thread.Sleep(1000);
+    }
+    public int AddWords(string words) {
+        string[] wordArray = words.Split(" ");
+        return wordArray.Length;
+    }
+     public void animation() 
+    {
         ///>\*|*/<
         List<string> animacionStrings = new List<string>();
         animacionStrings.Add(" >");
@@ -35,27 +60,10 @@ public class Listing : Activity
 
         foreach (string s in animacionStrings)
         {
-           Console.Write(s);
-           Thread.Sleep(6000);
-           Console.Write("\n ");
+            Console.Write(s);
+            Thread.Sleep(1000);
+            Console.Write("\n ");
         }
-
-
-        Console.WriteLine("Yay! You done. ");
-        public void CountWords(int timer)
-        {
-            Console.Write("*-*");
-            Console.ReadLine();
-            AddWords();
-
-            public void DisplayWords()
-            {
-                int words = GetWords();
-                Console.WriteLine($" You write {words} words! ");
-            }
-        }
-    
-    }     
-
+    }
         
 }
